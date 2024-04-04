@@ -4,8 +4,29 @@ Container images for running Terraform with Python
 This project provides Docker images for CI/CD containing Python3 and Hashicorp Terraform. (They also include git,
 because a lot of CI platforms need that.)
 
+## Usage
+
 Images are tagged in the following format: `${TERRAFORM_VERSION}-py${PYTHON_VERSION}`. So the tag for an image with
-Terraform 1.5.7 and Python 3.12 would be `:1.5.7-py3.12`.
+Terraform 1.5.7 and Python 3.12 would be `ghcr.io/seancallaway/terraform-python:1.5.7-py3.12`.
+
+### Gitlab CI
+
+```yaml
+terraform_validate:
+  image:
+    name: ghcr.io/seancallaway/terraform-python:1.7.5-py3.12
+    entrypoint:
+      - "/usr/bin/env"
+      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  stage: validate
+  before_script:
+    - cd $TF_PATH
+    - rm -rf .terraform
+    - terraform --version
+    - terraform init
+  script:
+    - terraform validate
+```
 
 ## Versions
 
