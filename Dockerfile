@@ -1,10 +1,11 @@
-ARG TF_VERSION
 ARG PYTHON_VERSION
 FROM python:${PYTHON_VERSION}-alpine
-LABEL org.opencontainers.image.description="A docker image for CI containing git, Python ${PYTHON_VERSION}, and Terraform ${TF_VERSION}."
 
+ARG TF_VERSION
+ARG PYTHON_VERSION
 ARG TARGETOS
 ARG TARGETARCH
+LABEL org.opencontainers.image.description="A docker image for CI containing git, Python ${PYTHON_VERSION}, and Terraform ${TF_VERSION}."
 
 # Install Terraform and Vefify Binary
 RUN apk add --update --virtual .deps --no-cache gnupg && \
