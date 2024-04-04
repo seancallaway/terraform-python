@@ -45,6 +45,6 @@ jobs:
           --build-arg PYTHON_VERSION=${{ matrix.python_version }} \
           --build-arg TF_VERSION=${{ matrix.tf_version }} \
           --platform linux/amd64,linux/arm64 \
-          -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_BASE}}:${{ matrix.tf_version }}-py${{ matrix_python_version }} \
+          -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_BASE}}:${{ matrix.tf_version }}-py${{ matrix.python_version }} \
           --push \
           .
