@@ -1,8 +1,8 @@
 ARG PYTHON_VERSION
 FROM python:${PYTHON_VERSION}-alpine
 
-ARG TARGETOS   # via buildkit
-ARG TARGETARCH # via buildkit
+ARG TARGETOS
+ARG TARGETARCH
 ARG TF_VERSION
 
 # TEST
@@ -25,3 +25,5 @@ RUN apk add --update --virtual .deps --no-cache gnupg && \
 
 # Install Git
 RUN apk add --update --no-cache git
+
+ENTRYPOINT ["/usr/local/bin/terraform"]
