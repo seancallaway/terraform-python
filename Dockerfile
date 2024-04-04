@@ -1,3 +1,4 @@
+LABEL org.opencontainers.image.description="A docker image for CI containing git, Python ${PYTHON_VERSION}, and Terraform ${TF_VERSION}."
 ARG PYTHON_VERSION
 FROM python:${PYTHON_VERSION}-alpine
 
