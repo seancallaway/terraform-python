@@ -2,6 +2,9 @@ name: Build Images
 
 on:
   push:
+    paths:
+      - Dockerfile
+      - .github/workflows/images.yml
     branches:
       - initial-setup
 
