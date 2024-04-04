@@ -6,7 +6,7 @@ on:
       - Dockerfile
       - .github/workflows/images.yml
     branches:
-      - initial-setup
+      - main
 
 env:
   REGISTRY: ghcr.io
